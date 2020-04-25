@@ -1,27 +1,84 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+'use strict';
 import * as vscode from 'vscode';
+import { TextDocument, Position, Selection } from 'vscode';
+// import { commands, window, TextDocument, TextEditorEdit, ExtensionContext, Position, SnippetString, Selection } from 'vscode';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "pasteregex" is now active!');
+// declaring constants
+const editor = vscode.window.activeTextEditor;
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('pasteregex.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from PasteRegex!');
-	});
-
-	context.subscriptions.push(disposable);
+function getSelectedText(): string {
+    /*
+    This function is meant to get the text that is currently selected
+    */
+    let document = editor?.document;
+    let selection = editor?.selection;
+    let selectedText = document?.getText(selection);
+    return selectedText as string
 }
 
-// this method is called when your extension is deactivated
-export function deactivate() {}
+function insertNewString(modifiedString: string) {
+    /*
+    This function is meant to get the text that is currently selected
+    */
+    if (editor) {
+        let selection = editor.selection;
+        editor.edit(editBuilder => {
+            editBuilder.replace(selection, modifiedString);
+        });
+    }
+}
+
+// export the vscode commands that'll show up in the command pallette
+export function activate(context: vscode.ExtensionContext) {
+    let disposable = vscode.commands.registerCommand("PasteRegEx.rmHangingSpaces", async () => {
+        /*
+        This function removes all of the spaces that appear at the end of sentences
+        */
+        var selectionText: String = getSelectedText();
+        let editor = vscode.window.activeTextEditor;
+        let RegEx = new RegExp(" $", "gm")
+        var modifiedString: string = selectionText.replace(RegEx, "");
+        insertNewString(modifiedString)
+    });
+
+    disposable = vscode.commands.registerCommand("PasteRegEx.rmNewLines", async () => {
+        /*
+        This function removes all of the new lines in the selection
+        */
+        var selectionText: String = getSelectedText();
+        let editor = vscode.window.activeTextEditor;
+        let RegEx = new RegExp("\n", "gm")
+        var modifiedString: string = selectionText.replace(RegEx, " ");
+        insertNewString(modifiedString)
+    });
+
+    disposable = vscode.commands.registerCommand("PasteRegEx.rmHyphenLineEnd", async () => {
+        /*
+        This function removes all of the hyphens that appear at the end of the line
+        */
+        var selectionText: String = getSelectedText();
+        let editor = vscode.window.activeTextEditor;
+        let RegEx = new RegExp("(?<=[a-z])-$\n(?=[a-z])", "gm")
+        var modifiedString: string = selectionText.replace(RegEx, "");
+        insertNewString(modifiedString)
+    });
+
+    disposable = vscode.commands.registerCommand("PasteRegEx.rmSentenceBreaks", async () => {
+        /*
+        This function removes all of the newlines that appear to break up a sentence
+        */
+        var selectionText: String = getSelectedText();
+        let editor = vscode.window.activeTextEditor;
+        let RegEx = new RegExp("[a-z]$\n+[a-z]", "gm")
+        var modifiedString: string = selectionText.replace(RegEx, " ");
+        insertNewString(modifiedString)
+    });
+}
+
+export function deactivate() { }
+
+/*
+Getting access to the clipboard text
+// var clipboardText = await vscode.env.clipboard.readText();
+*/

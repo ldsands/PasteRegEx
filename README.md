@@ -1,21 +1,34 @@
-# pasteregex README
+# PasteRegEx README
 
-This is the README for your extension "pasteregex". After writing up a brief description, we recommend including the following sections.
+PasteRegEx is a simple extension which applies Regular Expressions (RegEx) to text selected in an active editor.
+
+-----------------------------------------------------------------------------------------------------------
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+After you select some text in an editor you can then select a PasteRegEx command and it will apply the Regular Expression to that selected text.
 
-For example if there is an image subfolder under your extension project workspace:
+This is a list of the current regular expressions that are currently implemented. They are shown in this format:
 
+functionName - function description - "regular expression", "flags" - "replacement text"
+
+- rmHangingSpaces - This function removes all of the spaces that appear at the end of sentences - " $", "gm" - ""
+- rmNewLines - This function removes all of the new lines in the selection - "\n", "gm" - " "
+- rmHyphenLineEnd - This function removes all of the hyphens that appear at the end of the line - "(?<=[a-z])-$\n(?=[a-z])", "gm" - ""
+- rmSentenceBreaks - This function removes all of the newlines that appear to break up a sentence - "[a-z]$\n+[a-z]", "gm" - " "
+<!-- 
 \!\[feature X\]\(images/feature-x.png\)
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+-->
+
+-----------------------------------------------------------------------------------------------------------
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+I do not believe there are any special requirements needed to run this extension.
 
+<!-- 
 ## Extension Settings
 
 Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
@@ -26,40 +39,50 @@ This extension contributes the following settings:
 
 * `myExtension.enable`: enable/disable this extension
 * `myExtension.thing`: set to `blah` to do something
+-->
+-----------------------------------------------------------------------------------------------------------
 
-## Known Issues
+## Plans for Future Releases
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+These plans are very much a wishlist that may or may not ever be completed. Feel free to create issues and/or pull requests to add features.
 
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+- add more regular expressions
+- add the ability to combine multiple regular expressions in sequence
+- [set up webpack to reduce the size of the extension](https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
+<!-- - [publish the extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) -->
+- [set up a CI workflow](https://code.visualstudio.com/api/working-with-extensions/continuous-integration)
+- add the ability to choose to apply the regular expression to either the selection or the clipboard
+- regular expression maker
+    - this is a very low priority and likely not to happen without help
+    - this would allow you to enter a regular expression yourself and choose some options some of these options could include
+        - prefix characters that will not be replaced
+        - main body expression to be replaced
+        - post body characters to not be replaced
+        - change what characters are replacing the body of regular expression
+- refactor the commands to be selected from a menu rather than each one being a separate command
+    - I'm not sure I want this or not so I'll give it some more thought
+- testing (I have NO experience with software testing so this will almost certainly happen ONLY if someone else takes on the task)
 
 -----------------------------------------------------------------------------------------------------------
 
-## Working with Markdown
+## Known Issues
 
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+At the moment there are no known issues
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
+-----------------------------------------------------------------------------------------------------------
 
-### For more information
+## Release Notes
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+### 0.0.1
 
-**Enjoy!**
+Initial release of PasteRegEx
+
+Includes:
+
+- apply regular expression to selected text
+- implimented the following commands
+    - rmHangingSpaces
+    - rmNewLines
+    - rmHyphenLineEnd
+    - rmSentenceBreaks
+

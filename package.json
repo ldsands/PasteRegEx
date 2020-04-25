@@ -1,24 +1,54 @@
 {
 	"name": "pasteregex",
-	"displayName": "PasteRegex",
+	"displayName": "PasteRegEx",
 	"description": "This extension allows you to run a regex statement on your clipboard text before pasting that text content",
-	"version": "0.0.1",
+    "version": "0.0.1",
+    "publisher": "ldsands",
+    "author": {
+        "name": "Levi Sands"
+    },
+    "keywords": ["RegEx", "edit", "text", "formatter", "plain text"],
 	"engines": {
 		"vscode": "^1.44.0"
-	},
+    },
+    "icon": "images/PasteRegEx.png",
 	"categories": [
 		"Other"
-	],
+    ],
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "homepage": "https://github.com/ldsands/PasteRegEx/blob/master/README.md",
+    "bugs": {
+        "url": "https://github.com/ldsands/PasteRegEx/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ldsands/PasteRegEx.git"
+    },
 	"activationEvents": [
-		"onCommand:pasteregex.helloWorld"
+        "onCommand:PasteRegEx.rmHangingSpaces",
+        "onCommand:PasteRegEx.rmNewLines",
+        "onCommand:PasteRegEx.rmHyphenLineEnd",
+        "onCommand:PasteRegEx.rmSentenceBreaks"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "pasteregex.helloWorld",
-				"title": "Hello World"
-			}
+				"command": "PasteRegEx.rmHangingSpaces",
+				"title": "PasteRegEx: Remove Hanging Spaces"
+            },
+            {
+				"command": "PasteRegEx.rmNewLines",
+				"title": "PasteRegEx: Remove New Lines"
+            },
+            {
+				"command": "PasteRegEx.rmHyphenLineEnd",
+				"title": "PasteRegEx: Remove New Lines"
+            },
+            {
+				"command": "PasteRegEx.rmSentenceBreaks",
+				"title": "PasteRegEx: Remove New Lines"
+            }
 		]
 	},
 	"scripts": {
@@ -30,13 +60,13 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.44.0",
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^7.0.2",
 		"@types/node": "^13.11.0",
-		"eslint": "^6.8.0",
-		"@typescript-eslint/parser": "^2.26.0",
+		"@types/vscode": "^1.44.0",
 		"@typescript-eslint/eslint-plugin": "^2.26.0",
+		"@typescript-eslint/parser": "^2.26.0",
+		"eslint": "^6.8.0",
 		"glob": "^7.1.6",
 		"mocha": "^7.1.1",
 		"typescript": "^3.8.3",
