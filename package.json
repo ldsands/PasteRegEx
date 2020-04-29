@@ -2,33 +2,39 @@
 	"name": "pasteregex",
 	"displayName": "PasteRegEx",
 	"description": "This extension allows you to run a regex statement on your clipboard text before pasting that text content",
-    "version": "0.0.1",
-    "publisher": "ldsands",
-    "author": {
-        "name": "Levi Sands"
-    },
-    "keywords": ["RegEx", "edit", "text", "formatter", "plain text"],
+	"version": "0.0.2",
+	"publisher": "ldsands",
+	"author": {
+		"name": "Levi Sands"
+	},
+	"keywords": [
+		"RegEx",
+		"edit",
+		"text",
+		"formatter",
+		"plain text"
+	],
 	"engines": {
 		"vscode": "^1.44.0"
-    },
-    "icon": "images/PasteRegEx.png",
+	},
+	"icon": "images/PasteRegEx.png",
 	"categories": [
 		"Other"
-    ],
-    "license": "SEE LICENSE IN LICENSE.txt",
-    "homepage": "https://github.com/ldsands/PasteRegEx/blob/master/README.md",
-    "bugs": {
-        "url": "https://github.com/ldsands/PasteRegEx/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ldsands/PasteRegEx.git"
-    },
+	],
+	"license": "SEE LICENSE IN LICENSE.txt",
+	"homepage": "https://github.com/ldsands/PasteRegEx/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/ldsands/PasteRegEx/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ldsands/PasteRegEx.git"
+	},
 	"activationEvents": [
-        "onCommand:PasteRegEx.rmHangingSpaces",
-        "onCommand:PasteRegEx.rmNewLines",
-        "onCommand:PasteRegEx.rmHyphenLineEnd",
-        "onCommand:PasteRegEx.rmSentenceBreaks"
+		"onCommand:PasteRegEx.rmHangingSpaces",
+		"onCommand:PasteRegEx.rmNewLines",
+		"onCommand:PasteRegEx.rmHyphenLineEnd",
+		"onCommand:PasteRegEx.rmSentenceBreaks"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -36,19 +42,19 @@
 			{
 				"command": "PasteRegEx.rmHangingSpaces",
 				"title": "PasteRegEx: Remove Hanging Spaces"
-            },
-            {
+			},
+			{
 				"command": "PasteRegEx.rmNewLines",
 				"title": "PasteRegEx: Remove New Lines"
-            },
-            {
+			},
+			{
 				"command": "PasteRegEx.rmHyphenLineEnd",
 				"title": "PasteRegEx: Remove Hyphen word break"
-            },
-            {
+			},
+			{
 				"command": "PasteRegEx.rmSentenceBreaks",
 				"title": "PasteRegEx: Remove newlines in mid-sentence"
-            }
+			}
 		]
 	},
 	"scripts": {
