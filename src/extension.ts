@@ -49,7 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
         var selectionText: String = getSelectedText();
         let editor = vscode.window.activeTextEditor;
         let RegEx = new RegExp("\n", "gm")
-        var modifiedString: string = selectionText.replace(RegEx, " ");
+        var modifiedString: string = selectionText.replace("/\n/gm", " ");
         insertNewString(modifiedString)
     });
 

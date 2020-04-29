@@ -12,10 +12,15 @@ This is a list of the current regular expressions that are currently implemented
 
 functionName - function description - "regular expression", "flags" - "replacement text"
 
-- rmHangingSpaces - This function removes all of the spaces that appear at the end of sentences - " $", "gm" - ""
-- rmNewLines - This function removes all of the new lines in the selection - "\n", "gm" - " "
-- rmHyphenLineEnd - This function removes all of the hyphens that appear at the end of the line - "(?<=[a-z])-$\n(?=[a-z])", "gm" - ""
-- rmSentenceBreaks - This function removes all of the newlines that appear to break up a sentence - "[a-z]$\n+[a-z]", "gm" - " "
+- rmHangingSpaces
+    - This function removes all of the spaces that appear at the end of sentences - " $", "gm" - ""
+- rmNewLines
+    - This function removes all of the new lines in the selection - "\n", "gm" - " "
+- rmHyphenLineEnd
+    - This function removes all of the hyphens that appear at the end of the line - "(?<=[a-z])-$\n(?=[a-z])", "gm" - ""
+- rmSentenceBreaks
+    - This function removes all of the newlines that appear to break up a sentence - "[a-z]$\n+[a-z]", "gm" - " "
+
 <!-- 
 \!\[feature X\]\(images/feature-x.png\)
 
@@ -47,6 +52,7 @@ This extension contributes the following settings:
 These plans are very much a wishlist that may or may not ever be completed. Feel free to create issues and/or pull requests to add features.
 
 - add more regular expressions
+    - remove any curly quotes, commas, etc and replace them with the straight versions
 - add the ability to combine multiple regular expressions in sequence
 - [set up webpack to reduce the size of the extension](https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
 <!-- - [publish the extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) -->
@@ -67,22 +73,31 @@ These plans are very much a wishlist that may or may not ever be completed. Feel
 
 ## Known Issues
 
-At the moment there are no known issues
+<!-- At the moment there are no known issues -->
+- for some reason the regex is not completing as expected
+    <!-- - this might be an issue with the string String difference as it was working before I changed it -->
 
 -----------------------------------------------------------------------------------------------------------
 
 ## Release Notes
 
-### 0.0.1
+### 0.0.0002
+
+- updated
+    - minor changes to the README
+    - one regex statement in extension.ts to match the others
+    - added known bug
+    - changed the release versioning
+
+### 0.0.0001
 
 Initial release of PasteRegEx
 
 Includes:
 
 - apply regular expression to selected text
-- implimented the following commands
+- implemented the following commands
     - rmHangingSpaces
     - rmNewLines
     - rmHyphenLineEnd
     - rmSentenceBreaks
-

@@ -2,7 +2,7 @@
 	"name": "pasteregex",
 	"displayName": "PasteRegEx",
 	"description": "This extension allows you to run a regex statement on your clipboard text before pasting that text content",
-    "version": "0.0.1",
+    "version": "0.0.0002",
     "publisher": "ldsands",
     "author": {
         "name": "Levi Sands"
@@ -43,11 +43,11 @@
             },
             {
 				"command": "PasteRegEx.rmHyphenLineEnd",
-				"title": "PasteRegEx: Remove New Lines"
+				"title": "PasteRegEx: Remove Hyphen word break"
             },
             {
 				"command": "PasteRegEx.rmSentenceBreaks",
-				"title": "PasteRegEx: Remove New Lines"
+				"title": "PasteRegEx: Remove newlines in mid-sentence"
             }
 		]
 	},
