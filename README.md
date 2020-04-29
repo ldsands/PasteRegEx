@@ -81,7 +81,7 @@ These plans are very much a wishlist that may or may not ever be completed. Feel
 
 ## Release Notes
 
-### 0.0.0002
+### 0.0.1
 
 - updated
     - minor changes to the README
@@ -89,7 +89,7 @@ These plans are very much a wishlist that may or may not ever be completed. Feel
     - added known bug
     - changed the release versioning
 
-### 0.0.0001
+### 0.0.1
 
 Initial release of PasteRegEx
 
