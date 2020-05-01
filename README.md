@@ -2,8 +2,6 @@
 
 PasteRegEx is a simple extension which applies Regular Expressions (RegEx) to text selected in an active editor.
 
------------------------------------------------------------------------------------------------------------
-
 ## Features
 
 After you select some text in an editor you can then select a PasteRegEx command and it will apply the Regular Expression to that selected text.
@@ -27,8 +25,6 @@ functionName - function description - "regular expression", "flags" - "replaceme
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 -->
 
------------------------------------------------------------------------------------------------------------
-
 ## Requirements
 
 I do not believe there are any special requirements needed to run this extension.
@@ -45,7 +41,6 @@ This extension contributes the following settings:
 * `myExtension.enable`: enable/disable this extension
 * `myExtension.thing`: set to `blah` to do something
 -->
------------------------------------------------------------------------------------------------------------
 
 ## Plans for Future Releases
 
@@ -69,35 +64,12 @@ These plans are very much a wishlist that may or may not ever be completed. Feel
     - I'm not sure I want this or not so I'll give it some more thought
 - testing (I have NO experience with software testing so this will almost certainly happen ONLY if someone else takes on the task)
 
------------------------------------------------------------------------------------------------------------
-
 ## Known Issues
 
 <!-- At the moment there are no known issues -->
 - for some reason the regex is not completing as expected
-    <!-- - this might be an issue with the string String difference as it was working before I changed it -->
-
------------------------------------------------------------------------------------------------------------
+    - this might be an issue with the string String difference as it was working before I changed it
 
 ## Release Notes
 
-### 0.0.1
-
-- updated
-    - minor changes to the README
-    - one regex statement in extension.ts to match the others
-    - added known bug
-    - changed the release versioning
-
-### 0.0.1
-
-Initial release of PasteRegEx
-
-Includes:
-
-- apply regular expression to selected text
-- implemented the following commands
-    - rmHangingSpaces
-    - rmNewLines
-    - rmHyphenLineEnd
-    - rmSentenceBreaks
+[see the changelog](CHANGELOG.md)

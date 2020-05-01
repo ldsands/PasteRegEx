@@ -1,0 +1,7 @@
+This sentence is split in the middle
+to test the sentence breaks command.
+
+This sentence is here to test the the hanging spaces command. Here the command should remove multiple hanging spaces.  
+
+This sentence is to test the hy-
+phen work break command.

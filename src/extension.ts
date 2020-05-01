@@ -37,7 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
         */
         var selectionText: String = getSelectedText();
         let editor = vscode.window.activeTextEditor;
-        let RegEx = new RegExp(" $", "gm")
+        const RegEx = new RegExp(" +$", "gm")
         var modifiedString: string = selectionText.replace(RegEx, "");
         insertNewString(modifiedString)
     });
@@ -48,8 +48,8 @@ export function activate(context: vscode.ExtensionContext) {
         */
         var selectionText: String = getSelectedText();
         let editor = vscode.window.activeTextEditor;
-        let RegEx = new RegExp("\n", "gm")
-        var modifiedString: string = selectionText.replace("/\n/gm", " ");
+        const RegEx = new RegExp("\r?|\n?", "gm")
+        var modifiedString: string = selectionText.replace(RegEx, " ");
         insertNewString(modifiedString)
     });
 
@@ -59,7 +59,7 @@ export function activate(context: vscode.ExtensionContext) {
         */
         var selectionText: String = getSelectedText();
         let editor = vscode.window.activeTextEditor;
-        let RegEx = new RegExp("(?<=[a-z])-$\n(?=[a-z])", "gm")
+        const RegEx = new RegExp("(?<=[a-z])-$\r?|\n?(?=[a-z])", "gm")
         var modifiedString: string = selectionText.replace(RegEx, "");
         insertNewString(modifiedString)
     });
@@ -70,7 +70,7 @@ export function activate(context: vscode.ExtensionContext) {
         */
         var selectionText: String = getSelectedText();
         let editor = vscode.window.activeTextEditor;
-        let RegEx = new RegExp("[a-z]$\n+[a-z]", "gm")
+        const RegEx = new RegExp("(?<=[a-z])$\r?|\n?(?=[a-z])", "gm")
         var modifiedString: string = selectionText.replace(RegEx, " ");
         insertNewString(modifiedString)
     });
