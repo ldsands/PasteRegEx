@@ -11,6 +11,16 @@ All notable changes to the "PasteRegEx" extension will be documented in this fil
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
+## 0.0.4 - 2020-05-02
+
+Patch
+
+- Changed
+    - changed all of the regular expressions and placed them directly into the string replace `searchValue` section
+- Fixed
+    - fixed the issue of the rmNewLines working correctly
+    - fixed the issue of the rmSentenceBreaks working correctly
+
 ## 0.0.3 - 2020-04-29
 
 Patch

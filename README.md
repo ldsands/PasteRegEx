@@ -73,3 +73,23 @@ These plans are very much a wishlist that may or may not ever be completed. Feel
 ## Release Notes
 
 [see the changelog](CHANGELOG.md)
+
+<!--
+
+## Publishing Instructions
+
+```PowerShell
+# if you have not yet setup vsce then enter the following code
+npm install -g vsce
+vsce login (publisher name)
+# to publish a patch (increment the version number automatically)
+vsce publish patch -p $token
+# to publish a minor (increment the version number automatically)
+vsce publish minor -p $token
+# to publish a major (increment the version number automatically)
+vsce publish major -p $token
+# to unpublish an extension
+vsce unpublish (publisher name).(extension name)
+```
+
+-->
