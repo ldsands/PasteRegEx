@@ -1,7 +1,27 @@
-This sentence is split in the middle
-to test the sentence breaks command.
+rmHangingSpaces
 
 This sentence is here to test the the hanging spaces command. Here the command should remove multiple hanging spaces.  
 
+rmNewLines
+
+to test the
+
+new lines command
+
+use that command
+
+on this grouping of text
+
+rmHyphenLineEnd
+
 This sentence is to test the hy-
 phen work break command.
+
+rmSentenceBreaks
+
+This sentence is split in the middle
+to test the sentence breaks command.
+
+rmExtraSpaces
+
+This sentence  is here to test the  the extra spaces command. This command should remove any instances  of more than one space  consecutively with only one space.

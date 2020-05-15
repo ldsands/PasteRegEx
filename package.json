@@ -34,7 +34,8 @@
 		"onCommand:PasteRegEx.rmHangingSpaces",
 		"onCommand:PasteRegEx.rmNewLines",
 		"onCommand:PasteRegEx.rmHyphenLineEnd",
-		"onCommand:PasteRegEx.rmSentenceBreaks"
+		"onCommand:PasteRegEx.rmSentenceBreaks",
+		"onCommand:PasteRegEx.rmExtraSpaces"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -54,6 +55,10 @@
 			{
 				"command": "PasteRegEx.rmSentenceBreaks",
 				"title": "PasteRegEx: Remove newlines in mid-sentence"
+			},
+			{
+				"command": "PasteRegEx.rmExtraSpaces",
+				"title": "PasteRegEx: Removes more than one space with one space"
 			}
 		]
 	},

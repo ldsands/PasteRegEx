@@ -2,22 +2,39 @@
 
 PasteRegEx is a simple extension which applies Regular Expressions (RegEx) to text selected in an active editor.
 
+- [PasteRegEx README](#pasteregex-readme)
+    - [Features](#features)
+    - [Requirements](#requirements)
+    - [Extension Settings](#extension-settings)
+    - [Plans for Future Releases](#plans-for-future-releases)
+    - [Known Issues](#known-issues)
+    - [Release Notes](#release-notes)
+
 ## Features
 
 After you select some text in an editor you can then select a PasteRegEx command and it will apply the Regular Expression to that selected text.
 
 This is a list of the current regular expressions that are currently implemented. They are shown in this format:
 
-functionName - function description - "regular expression", "flags" - "replacement text"
+- functionName
+    - function description
+    - `regular expression`, `flags`, "replacement text"
 
 - rmHangingSpaces
-    - This function removes all of the spaces that appear at the end of sentences - " $", "gm" - ""
+    - This function removes all of the spaces that appear at the end of sentences
+    - ` +$`, `gm`, ""
 - rmNewLines
-    - This function removes all of the new lines in the selection - "\n", "gm" - " "
+    - This function removes all of the new lines in the selection
+    - `\r\n+|\n+|\r+`, `gm`, " "
 - rmHyphenLineEnd
-    - This function removes all of the hyphens that appear at the end of the line - "(?<=[a-z])-$\n(?=[a-z])", "gm" - ""
+    - This function removes all of the hyphens that appear at the end of the line
+    - `(?<=[a-z])-$\r\n+|\n+|\r+(?=[a-z])`, `gm`, ""
 - rmSentenceBreaks
-    - This function removes all of the newlines that appear to break up a sentence - "[a-z]$\n+[a-z]", "gm" - " "
+    - This function removes all of the newlines that appear to break up a sentence
+    - `([a-z])(\r\n+|\n+|\r+)(?=[a-z])`, `gm`, "$1 "
+- rmExtraSpaces
+    - This function removes all instances of more than one space and replaces them with one space
+    - ` +`, `gm`, " "
 
 <!-- 
 \!\[feature X\]\(images/feature-x.png\)
@@ -29,9 +46,11 @@ functionName - function description - "regular expression", "flags" - "replaceme
 
 I do not believe there are any special requirements needed to run this extension.
 
-<!-- 
 ## Extension Settings
 
+There are currently no extension settings but I do hope to add some in the future.
+
+<!-- 
 Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
 For example:
@@ -46,6 +65,10 @@ This extension contributes the following settings:
 
 These plans are very much a wishlist that may or may not ever be completed. Feel free to create issues and/or pull requests to add features.
 
+- existing command improvements
+    - allow for rmSentenceBreaks to also include certain types of punctuation between the sentences and to remove multiple new lines between sentences
+
+- change the versioning schema
 - add more regular expressions
     - remove any curly quotes, commas, etc and replace them with the straight versions
 - add the ability to combine multiple regular expressions in sequence
@@ -67,29 +90,8 @@ These plans are very much a wishlist that may or may not ever be completed. Feel
 ## Known Issues
 
 <!-- At the moment there are no known issues -->
-- for some reason the regex is not completing as expected
-    - this might be an issue with the string String difference as it was working before I changed it
+- I need to make sure that using the new lines command also removes all of the double spaces (I may make this a user setting later)
 
 ## Release Notes
 
 [see the changelog](CHANGELOG.md)
-
-<!--
-
-## Publishing Instructions
-
-```PowerShell
-# if you have not yet setup vsce then enter the following code
-npm install -g vsce
-vsce login (publisher name)
-# to publish a patch (increment the version number automatically)
-vsce publish patch -p $token
-# to publish a minor (increment the version number automatically)
-vsce publish minor -p $token
-# to publish a major (increment the version number automatically)
-vsce publish major -p $token
-# to unpublish an extension
-vsce unpublish (publisher name).(extension name)
-```
-
--->

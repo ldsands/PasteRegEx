@@ -70,6 +70,16 @@ export function activate(context: vscode.ExtensionContext) {
         var modifiedString: string = selectionText.replace(/([a-z])(\r\n+|\n+|\r+)(?=[a-z])/gm, "$1 ");
         insertNewString(modifiedString)
     });
+
+    disposable = vscode.commands.registerCommand("PasteRegEx.rmExtraSpaces", async () => {
+        /*
+        This function removes all instances of more than one space and replaces them with one space
+        */
+        var selectionText: String = getSelectedText();
+        let editor = vscode.window.activeTextEditor;
+        var modifiedString: string = selectionText.replace(/ +/gm, " ");
+        insertNewString(modifiedString)
+    });
 }
 
 export function deactivate() { }
