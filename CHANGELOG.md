@@ -37,6 +37,7 @@ All notable changes to the "PasteRegEx" extension will be documented in this fil
             - [x] Fixed - for any bug fixes.
             - [x] Security - in case of vulnerabilities.
     - [ ] publish using `vsce`
+    - [ ] create a [new GitHub Release](https://github.com/ldsands/PasteRegEx/releases/new)
 
 ```PowerShell
 # if you have not yet setup vsce then enter the following code
